@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vodoinstalater Banja Luka — vodoinstalaterske usluge</title>
+<meta name="description" content="Vodoinstalaterske usluge u Banjoj Luci i okolini — odštopavanje, popravke, ugradnja sanitarija i bojlera, detekcija curenja i hitne intervencije 24/7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+  /* ---- 4px spacing system: svi razmaci (margin/padding/gap) djeljivi sa 4 ---- */
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Manrope',system-ui,sans-serif;color:#0f1b2d;background:#ffffff;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Sora','Manrope',sans-serif;margin:0}
+  p{margin:0}
+  img{max-width:100%;display:block}
+  a{color:#1d4ed8;text-decoration:none}
+  a:hover{color:#15386e}
+  ::selection{background:#d4e3fb}
+
+  /* ---- Grid sistem: 12-kolonska logika, ujednačen gutter 24px ---- */
+  .wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .grid-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  @media (max-width:1000px){.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:620px){.grid-3,.grid-2,.grid-stats{grid-template-columns:minmax(0,1fr)}}
+  .footer-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+  @media (max-width:720px){.footer-cols{grid-template-columns:minmax(0,1fr);gap:32px}}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Sora',sans-serif;font-weight:600;font-size:15px;line-height:1;padding:16px 24px;border-radius:12px;border:1px solid transparent;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease;text-decoration:none}
+  .btn svg{width:18px;height:18px}
+  .btn-primary{background:#0e2a54;color:#fff;box-shadow:0 10px 24px rgba(14,42,84,.22)}
+  .btn-primary:hover{background:#15386e;transform:translateY(-2px);box-shadow:0 16px 30px rgba(14,42,84,.28);color:#fff}
+  .btn-accent{background:#1d4ed8;color:#fff;box-shadow:0 10px 24px rgba(29,78,216,.25)}
+  .btn-accent:hover{background:#1b45bd;transform:translateY(-2px);box-shadow:0 16px 30px rgba(29,78,216,.3);color:#fff}
+  .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.4)}
+  .btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px);color:#fff}
+  .btn:focus-visible,.menu-btn:focus-visible,.navlink:focus-visible{outline:3px solid #9ec0ff;outline-offset:2px}
+
+  .nav-links{display:flex;align-items:center;gap:4px}
+  .navlink{font-family:'Sora',sans-serif;font-weight:500;font-size:15px;color:#2a3b54;padding:8px 16px;border-radius:8px;transition:color .2s ease,background .2s ease}
+  .navlink:hover{color:#0e2a54;background:#eef3fb}
+  .menu-btn{display:none;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;border:1px solid #dfe8f5;background:#fff;color:#0e2a54;cursor:pointer;transition:background .2s ease}
+  .menu-btn:hover{background:#eef3fb}
+  .menu-btn svg{width:24px;height:24px}
+
+  .service-card,.gallery-tile,.adv-item{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+  .service-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(14,42,84,.13);border-color:#cfe0f8}
+  .icon-chip{transition:transform .25s ease,background .25s ease,color .25s ease}
+  .service-card:hover .icon-chip{transform:scale(1.06) rotate(-4deg);background:#1d4ed8;color:#fff}
+  .gallery-tile:hover{transform:translateY(-4px);box-shadow:0 24px 44px rgba(14,42,84,.17)}
+  .gallery-tile:hover .gallery-media{transform:scale(1.04)}
+  .gallery-media{transition:transform .4s ease}
+
+  .field label{font-size:13.5px;font-weight:600;color:#33465f}
+  .field input,.field textarea{font-family:'Manrope',sans-serif;font-size:15px;color:#0f1b2d;padding:12px 16px;border:1px solid #d9e2ef;border-radius:12px;background:#fff;transition:border-color .2s ease,box-shadow .2s ease;width:100%}
+  .field input:focus,.field textarea:focus{outline:none;border-color:#1d4ed8;box-shadow:0 0 0 3px rgba(29,78,216,.14)}
+  .field input::placeholder,.field textarea::placeholder{color:#9aa8bd}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes popIn{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+  .reveal{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
+  .float{animation:floatY 6s ease-in-out infinite}
+  @media (prefers-reduced-motion:reduce){.reveal,.float{animation:none}}
+
+  @media (max-width:900px){
+    .phone-cta{display:none !important}
+    .menu-btn{display:inline-flex}
+    .nav-links{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:4px;background:#fff;border-top:1px solid #e9eef6;border-bottom:1px solid #e9eef6;padding:12px 16px;box-shadow:0 20px 40px rgba(14,42,84,.12)}
+    .nav-links.open{display:flex}
+    .navlink{padding:12px;font-size:16px}
+    .nav-cta-mobile{display:inline-flex !important}
+  }
+</style>
+</head>
+<body>
+<div style="width:100%">
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header style="position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #e9eef6">
+    <div class="wrap" style="position:relative;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="#pocetak" data-close-menu style="display:flex;align-items:center;gap:12px;color:#0e2a54">
+        <img src="assets/logo.png" alt="Logo Vodoinstalater Banja Luka" style="height:50px;width:auto;display:block;flex-shrink:0">
+        <span style="display:flex;flex-direction:column;line-height:1.1">
+          <span style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em">Vodoinstalater Banja Luka</span>
+          <span style="font-size:11.5px;font-weight:600;color:#7489a3;letter-spacing:.06em;text-transform:uppercase">Brza, stručna i pouzdana usluga</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Glavna navigacija">
+        <a href="#pocetak" class="navlink" data-close-menu>Početna</a>
+        <a href="#usluge" class="navlink" data-close-menu>Usluge</a>
+        <a href="#onama" class="navlink" data-close-menu>O nama</a>
+        <a href="#kontakt" class="navlink" data-close-menu>Kontakt</a>
+        <button type="button" class="btn btn-accent nav-cta-mobile" data-open-call style="display:none;margin-top:8px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Pozovite nas
+        </button>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:8px">
+        <a href="tel:+38765170875" class="btn btn-primary phone-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          065 170 875
+        </a>
+        <button type="button" class="menu-btn" id="menuBtn" aria-label="Otvori meni">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="pocetak" style="position:relative;background:linear-gradient(160deg,#0e2a54 0%,#123a6b 55%,#15509e 100%);color:#fff;overflow:hidden">
+    <div style="position:absolute;top:-120px;right:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(93,158,255,.35),transparent 70%)"></div>
+    <div style="position:absolute;bottom:-160px;left:-120px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(93,158,255,.18),transparent 70%)"></div>
+    <div class="wrap" style="position:relative;padding-top:88px;padding-bottom:88px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:48px">
+      <div style="max-width:760px;width:100%">
+        <span class="reveal" style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:600;letter-spacing:.03em;animation-delay:.05s">
+          <span style="width:8px;height:8px;border-radius:50%;background:#56e0a0;box-shadow:0 0 0 4px rgba(86,224,160,.25)"></span>
+          Dostupni i za hitne intervencije
+        </span>
+        <h1 class="reveal" style="margin:24px 0 0;font-size:clamp(34px,5vw,54px);font-weight:800;line-height:1.08;letter-spacing:-.02em;animation-delay:.12s">
+          Vaš vodoinstalater u<br>Banjoj Luci i okolini
+        </h1>
+        <p class="reveal" style="margin:24px auto 0;max-width:580px;font-size:clamp(16px,2.2vw,19px);line-height:1.6;color:#cfe0f6;animation-delay:.2s">
+          Vršimo popravke, montažu i održavanje vodovodnih i kanalizacionih instalacija u stambenim i poslovnim objektima. Izlazimo na teren, utvrđujemo uzrok problema i rješavamo ga stručno i uredno.
+        </p>
+        <div class="reveal" style="margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;animation-delay:.28s">
+          <button type="button" class="btn btn-accent" data-open-call>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Pozovite nas
+          </button>
+          <a href="#usluge" class="btn btn-ghost">
+            Pogledajte usluge
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="reveal" style="margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:24px;animation-delay:.36s">
+          <div style="display:flex;align-items:center;gap:8px;color:#dbe8fb;font-size:14.5px;font-weight:500">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#56e0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Brz izlazak na teren
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;color:#dbe8fb;font-size:14.5px;font-weight:500">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#56e0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            Garancija na izvedene radove
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;color:#dbe8fb;font-size:14.5px;font-weight:500">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#56e0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            Čisto i uredno nakon radova
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="width:100%;max-width:420px;display:flex;justify-content:center;text-align:left;animation-delay:.3s">
+        <div class="float" style="width:100%;max-width:400px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:32px;backdrop-filter:blur(6px)">
+          <div style="display:flex;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.14)">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:#1d4ed8;color:#fff">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </span>
+            <div>
+              <div style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px">Potreban Vam je majstor?</div>
+              <div style="font-size:13.5px;color:#cfe0f6">Pozovite nas i opišite problem</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:16px;padding-top:20px">
+            <div style="display:flex;align-items:center;gap:12px">
+              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#9ec0ff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span style="font-size:15px;font-weight:600">065 170 875</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#9ec0ff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span style="font-size:15px;color:#e4eefb">Bulevar vojvode Živojina Mišića 30, Banja Luka</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px">
+              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#9ec0ff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <span style="flex:1;min-width:0;font-size:14px;color:#cfe0f6;display:flex;flex-direction:column;gap:5px">
+                <span style="display:flex;justify-content:space-between;gap:16px"><span>Pon – Pet</span><span style="color:#fff;font-weight:700">08–18h</span></span>
+                <span style="display:flex;justify-content:space-between;gap:16px"><span>Subota</span><span style="color:#fff;font-weight:700">08–15h</span></span>
+                <span style="display:flex;justify-content:space-between;gap:16px"><span>Hitne intervencije</span><span style="color:#fff;font-weight:700">24/7</span></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ USLUGE ============ -->
+  <section id="usluge" style="background:#ffffff;padding-top:88px;padding-bottom:88px">
+    <div class="wrap">
+      <div style="max-width:640px;margin:0 auto;text-align:center">
+        <span style="font-family:'Sora',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1d4ed8">Naše usluge</span>
+        <h2 style="margin:16px 0 0;font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.02em;color:#0e2a54">Usluge koje pružamo</h2>
+        <p style="margin:16px 0 0;font-size:17px;line-height:1.6;color:#52627a">Od manjih popravki do kompletnih instalacija — pregled radova koje najčešće izvodimo.</p>
+      </div>
+
+      <div class="grid-3" style="margin-top:48px">
+
+        <article class="service-card" style="background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Odštopavanje i čišćenje kanalizacije</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Ručno i mašinsko čišćenje odvoda i kanalizacije, i za teža začepljenja.</p>
+        </article>
+
+        <article class="service-card" style="background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m4 4 2.5 2.5"/><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"/><path d="M15 5 5 15"/><path d="M14 17v.01"/><path d="M10 16v.01"/><path d="M13 13v.01"/><path d="M16 10v.01"/><path d="M11 20v.01"/><path d="M17 14v.01"/><path d="M20 11v.01"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Montaža i popravka sanitarija</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Ugradnja i popravka WC šolja, umivaonika, slavina i ventila.</p>
+        </article>
+
+        <article class="service-card" style="background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Bojleri i pumpe</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Ugradnja i servis bojlera i cirkulacionih pumpi, zamjena ventila.</p>
+        </article>
+
+        <article class="service-card" style="background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"/><path d="M12 18a3 3 0 0 0 3-3"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Detekcija i sanacija curenja</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Pronalaženje i otklanjanje skrivenih curenja uz minimalno razbijanje.</p>
+        </article>
+
+        <article class="service-card" style="background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Vodovodne i kanalizacione cijevi</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Razvod i zamjena PPR, PEX i PVC instalacija za toplu i hladnu vodu.</p>
+        </article>
+
+        <article class="service-card" style="background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Sanacija i adaptacija kupatila</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Kompletno renoviranje kupatila — od instalacija do sanitarija.</p>
+        </article>
+
+        <article class="service-card" style="background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Video inspekcija kanalizacije</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Pregled kanalizacije kamerom i procjena stanja cijevi.</p>
+        </article>
+
+        <article class="service-card" style="background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Hitne intervencije 24/7</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Brz izlazak kod puknuća, poplava i začepljenja — svakog dana.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ O NAMA / PREDNOSTI ============ -->
+  <section id="onama" style="background:#f4f8fd;padding-top:88px;padding-bottom:88px">
+    <div class="wrap" style="display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+      <div style="flex:1 1 400px;min-width:0">
+        <span style="font-family:'Sora',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1d4ed8">O nama</span>
+        <h2 style="margin:16px 0 0;font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.02em;color:#0e2a54">Iskustvo na koje se možete osloniti</h2>
+        <p style="margin:16px 0 0;font-size:16.5px;line-height:1.7;color:#43566f">
+          Bavimo se vodoinstalaterskim radovima na području Banje Luke i okoline. Svakom poslu pristupamo odgovorno i temeljno, bez obzira na to da li je riječ o manjoj popravci ili većoj instalaciji. Prije početka radova jasno dogovaramo obim posla, rok i cijenu, kako biste unaprijed znali šta možete očekivati.
+        </p>
+        <p style="margin:16px 0 0;font-size:16.5px;line-height:1.7;color:#43566f">
+          U radu nam je važno da svaki posao bude urađen kvalitetno i da prostor ostane uredan nakon njegovog završetka. Na izvedene radove dajemo garanciju, a za sva dodatna pitanja ostajemo dostupni i nakon obavljenog posla.
+        </p>
+
+        <div class="grid-stats" style="margin-top:32px">
+          <div style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:20px">
+            <div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:#1d4ed8">20+</div>
+            <div style="margin-top:4px;font-size:13.5px;font-weight:600;color:#52627a">godina iskustva</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:20px">
+            <div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:#1d4ed8">500+</div>
+            <div style="margin-top:4px;font-size:13.5px;font-weight:600;color:#52627a">završenih radova</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:20px">
+            <div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:#1d4ed8">24/7</div>
+            <div style="margin-top:4px;font-size:13.5px;font-weight:600;color:#52627a">za hitne slučajeve</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="flex:1 1 360px;min-width:0">
+        <div class="adv-item" style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:24px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#0e2a54;color:#fff;margin-bottom:16px">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 22l5-3 5 3-1.21-8.12"/></svg>
+          </span>
+          <h3 style="font-size:17px;font-weight:700;color:#0e2a54">Stručnost i kvalitet</h3>
+          <p style="margin-top:8px;font-size:14.5px;line-height:1.6;color:#52627a">Radove izvodimo pažljivo i u skladu s pravilima struke.</p>
+        </div>
+        <div class="adv-item" style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:24px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#0e2a54;color:#fff;margin-bottom:16px">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="14" r="8"/><path d="M12 14l3-3"/><path d="M9 2h6"/></svg>
+          </span>
+          <h3 style="font-size:17px;font-weight:700;color:#0e2a54">Brz izlazak na teren</h3>
+          <p style="margin-top:8px;font-size:14.5px;line-height:1.6;color:#52627a">Poštujemo dogovorene termine i izlazimo u najkraćem mogućem roku.</p>
+        </div>
+        <div class="adv-item" style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:24px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#0e2a54;color:#fff;margin-bottom:16px">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <h3 style="font-size:17px;font-weight:700;color:#0e2a54">Garancija na radove</h3>
+          <p style="margin-top:8px;font-size:14.5px;line-height:1.6;color:#52627a">Na sve izvedene radove dajemo garanciju kvaliteta.</p>
+        </div>
+        <div class="adv-item" style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:24px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#0e2a54;color:#fff;margin-bottom:16px">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.59 2.59A2 2 0 0 0 11.17 2H4a2 2 0 0 0-2 2v7.17a2 2 0 0 0 .59 1.42l8.7 8.7a2.43 2.43 0 0 0 3.42 0l6.58-6.58a2.43 2.43 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <h3 style="font-size:17px;font-weight:700;color:#0e2a54">Jasne i povoljne cijene</h3>
+          <p style="margin-top:8px;font-size:14.5px;line-height:1.6;color:#52627a">Cijenu dogovaramo unaprijed, bez naknadnih i skrivenih troškova.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KONTAKT ============ -->
+  <section id="kontakt" style="background:#ffffff;padding-top:88px;padding-bottom:88px">
+    <div class="wrap">
+      <div style="max-width:640px;margin:0 auto;text-align:center">
+        <span style="font-family:'Sora',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1d4ed8">Kontakt</span>
+        <h2 style="margin:16px 0 0;font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.02em;color:#0e2a54">Javite nam se</h2>
+        <p style="margin:16px 0 0;font-size:17px;line-height:1.6;color:#52627a">Pozovite nas ili pošaljite poruku putem forme — odgovorićemo u najkraćem mogućem roku.</p>
+      </div>
+
+      <div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+
+        <!-- Kontakt informacije -->
+        <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:16px">
+          <a href="tel:+38765170875" class="adv-item" style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:24px;color:inherit">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#e7f0fd;color:#1d4ed8;flex-shrink:0">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <span>
+              <span style="display:block;font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#7489a3">Telefon</span>
+              <span style="display:block;margin-top:4px;font-family:'Sora',sans-serif;font-size:17px;font-weight:700;color:#0e2a54">065 170 875</span>
+            </span>
+          </a>
+
+          <div class="adv-item" style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:24px">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#e7f0fd;color:#1d4ed8;flex-shrink:0">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <span>
+              <span style="display:block;font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#7489a3">Lokacija</span>
+              <span style="display:block;margin-top:4px;font-family:'Sora',sans-serif;font-size:17px;font-weight:700;color:#0e2a54">Bulevar vojvode Živojina Mišića 30, Banja Luka</span>
+            </span>
+          </div>
+
+          <div class="adv-item" style="display:flex;align-items:flex-start;gap:16px;background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:24px">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#e7f0fd;color:#1d4ed8;flex-shrink:0">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <span style="flex:1;min-width:0">
+              <span style="display:block;font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#7489a3">Radno vrijeme</span>
+              <span style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
+                <span style="display:flex;justify-content:space-between;gap:16px;font-size:14.5px"><span style="color:#52627a">Ponedjeljak – Petak</span><span style="font-family:'Sora',sans-serif;font-weight:700;color:#0e2a54">08–18h</span></span>
+                <span style="display:flex;justify-content:space-between;gap:16px;font-size:14.5px"><span style="color:#52627a">Subota</span><span style="font-family:'Sora',sans-serif;font-weight:700;color:#0e2a54">08–15h</span></span>
+                <span style="display:flex;justify-content:space-between;gap:16px;font-size:14.5px"><span style="color:#52627a">Nedjelja</span><span style="font-family:'Sora',sans-serif;font-weight:700;color:#0e2a54">Hitni pozivi</span></span>
+                <span style="display:flex;justify-content:space-between;gap:16px;font-size:14.5px;padding-top:8px;border-top:1px solid #eef2f8"><span style="color:#52627a">Hitne intervencije</span><span style="font-family:'Sora',sans-serif;font-weight:700;color:#1d4ed8">24/7</span></span>
+              </span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Mapa lokacije -->
+        <div style="flex:2 1 400px;min-width:0;align-self:stretch;border-radius:24px;overflow:hidden;border:1px solid #e3ebf6;box-shadow:0 20px 48px rgba(14,42,84,.07)">
+          <iframe title="Lokacija — Vodoinstalater Banja Luka" src="https://maps.google.com/maps?q=44.771043,17.204318&z=16&output=embed" style="display:block;width:100%;height:100%;min-height:360px;border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background:#0b2246;color:#c7d6ec;padding:56px 24px 32px">
+    <div style="max-width:1200px;margin:0 auto">
+      <div class="footer-cols">
+        <div style="min-width:0">
+          <div style="display:flex;align-items:center;gap:12px;color:#fff">
+            <img src="assets/logo.png" alt="Logo Vodoinstalater Banja Luka" style="height:46px;width:auto;display:block">
+            <span style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px">Vodoinstalater Banja Luka</span>
+          </div>
+          <p style="margin-top:16px;font-size:14.5px;line-height:1.6;color:#9db4d4">Brza, stručna i pouzdana vodoinstalaterska usluga u Banjoj Luci.</p>
+        </div>
+
+        <div style="min-width:0">
+          <h3 style="font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff">Navigacija</h3>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
+            <a href="#pocetak" style="color:#c7d6ec;font-size:14.5px">Početna</a>
+            <a href="#usluge" style="color:#c7d6ec;font-size:14.5px">Usluge</a>
+            <a href="#onama" style="color:#c7d6ec;font-size:14.5px">O nama</a>
+            <a href="#kontakt" style="color:#c7d6ec;font-size:14.5px">Kontakt</a>
+          </div>
+        </div>
+
+        <div style="min-width:0">
+          <h3 style="font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff">Kontakt</h3>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px">
+            <a href="tel:+38765170875" style="display:flex;align-items:center;gap:8px;color:#c7d6ec;font-size:14.5px">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#6f98cf" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              065 170 875
+            </a>
+            <span style="display:flex;align-items:center;gap:8px;color:#c7d6ec;font-size:14.5px">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#6f98cf" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Bulevar vojvode Živojina Mišića 30, Banja Luka
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center">
+        <span style="font-size:13px;color:#8aa3c6">© 2026 Vodoinstalater Banja Luka. Sva prava zadržana.</span>
+        <span style="font-size:13px;color:#8aa3c6">Banja Luka, Bosna i Hercegovina</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ POP-UP: KONTAKT BROJ ============ -->
+    <div id="callModal" data-close-call style="display:none;position:fixed;inset:0;z-index:100;background:rgba(10,24,48,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:24px;animation:fadeIn .2s ease both">
+      <div data-stop role="dialog" aria-label="Kontakt telefon" style="position:relative;width:100%;max-width:360px;background:#fff;border-radius:24px;padding:32px;text-align:center;box-shadow:0 30px 60px rgba(10,24,48,.35);animation:popIn .25s cubic-bezier(.2,.7,.2,1) both">
+        <button type="button" data-close-call aria-label="Zatvori" style="position:absolute;top:16px;right:16px;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;border:none;background:#f1f5fb;color:#52627a;cursor:pointer">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#e7f0fd;color:#1d4ed8;margin-bottom:16px">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </span>
+        <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Pozovite nas</h3>
+        <p style="margin:8px 0 20px;font-size:14.5px;line-height:1.6;color:#52627a">Dostupni smo za Vaš poziv — rado ćemo odgovoriti na sva pitanja.</p>
+        <a href="tel:+38765170875" style="display:block;font-family:'Sora',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.01em;color:#0e2a54;margin-bottom:20px">065 170 875</a>
+        <a href="tel:+38765170875" class="btn btn-accent" style="width:100%">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Pozovi odmah
+        </a>
+      </div>
+    </div>
+  
+
+</div>
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn');
+  var nav=document.getElementById('navLinks');
+  var modal=document.getElementById('callModal');
+  if(menuBtn&&nav){menuBtn.addEventListener('click',function(){nav.classList.toggle('open');});}
+  Array.prototype.forEach.call(document.querySelectorAll('[data-close-menu]'),function(el){el.addEventListener('click',function(){if(nav)nav.classList.remove('open');});});
+  function openCall(){if(modal){modal.style.display='flex';if(nav)nav.classList.remove('open');}}
+  function closeCall(){if(modal){modal.style.display='none';}}
+  Array.prototype.forEach.call(document.querySelectorAll('[data-open-call]'),function(el){el.addEventListener('click',openCall);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-close-call]'),function(el){el.addEventListener('click',closeCall);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-stop]'),function(el){el.addEventListener('click',function(e){e.stopPropagation();});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCall();});
+})();
+</script>
+</body>
+</html>
