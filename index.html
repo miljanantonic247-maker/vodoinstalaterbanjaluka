@@ -24,6 +24,9 @@
   .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
   .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
   .grid-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+  @media (max-width:1000px){.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:620px){.grid-4{grid-template-columns:minmax(0,1fr)}}
   @media (max-width:1000px){.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (max-width:620px){.grid-3,.grid-2,.grid-stats{grid-template-columns:minmax(0,1fr)}}
   .footer-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
@@ -47,6 +50,7 @@
   .menu-btn svg{width:24px;height:24px}
 
   .service-card,.gallery-tile,.adv-item{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+  .adv-item{box-shadow:0 10px 30px rgba(14,42,84,.05)}
   .service-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(14,42,84,.13);border-color:#cfe0f8}
   .icon-chip{transition:transform .25s ease,background .25s ease,color .25s ease}
   .service-card:hover .icon-chip{transform:scale(1.06) rotate(-4deg);background:#1d4ed8;color:#fff}
@@ -94,12 +98,17 @@
       <nav class="nav-links" id="navLinks" aria-label="Glavna navigacija">
         <a href="#pocetak" class="navlink" data-close-menu>Početna</a>
         <a href="#usluge" class="navlink" data-close-menu>Usluge</a>
+        <a href="#kako" class="navlink" data-close-menu>Kako radimo</a>
         <a href="#onama" class="navlink" data-close-menu>O nama</a>
         <a href="#kontakt" class="navlink" data-close-menu>Kontakt</a>
         <button type="button" class="btn btn-accent nav-cta-mobile" data-open-call style="display:none;margin-top:8px">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           Pozovite nas
         </button>
+        <a href="viber://chat?number=%2B38765170875" class="nav-cta-mobile" data-close-menu style="display:none;align-items:center;justify-content:center;gap:10px;margin-top:8px;background:#7360f2;color:#fff;font-family:'Sora',sans-serif;font-weight:600;font-size:15px;padding:16px 24px;border-radius:12px;text-decoration:none">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Pišite na Viber
+        </a>
       </nav>
 
       <div style="display:flex;align-items:center;gap:8px">
@@ -118,75 +127,56 @@
   <section id="pocetak" style="position:relative;background:linear-gradient(160deg,#0e2a54 0%,#123a6b 55%,#15509e 100%);color:#fff;overflow:hidden">
     <div style="position:absolute;top:-120px;right:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(93,158,255,.35),transparent 70%)"></div>
     <div style="position:absolute;bottom:-160px;left:-120px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(93,158,255,.18),transparent 70%)"></div>
-    <div class="wrap" style="position:relative;padding-top:88px;padding-bottom:88px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:48px">
-      <div style="max-width:760px;width:100%">
+    <div class="wrap" style="position:relative;padding-top:88px;padding-bottom:88px;display:flex;flex-wrap:wrap;align-items:center;gap:48px">
+
+      <div style="flex:1 1 440px;min-width:0">
         <span class="reveal" style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:600;letter-spacing:.03em;animation-delay:.05s">
           <span style="width:8px;height:8px;border-radius:50%;background:#56e0a0;box-shadow:0 0 0 4px rgba(86,224,160,.25)"></span>
-          Dostupni i za hitne intervencije
+          Vodoinstalater · Banja Luka i okolina
         </span>
         <h1 class="reveal" style="margin:24px 0 0;font-size:clamp(32px,5vw,48px);font-weight:800;line-height:1.08;letter-spacing:-.02em;animation-delay:.12s">
-          Vaš vodoinstalater u<br>Banjoj Luci i okolini
+          Pouzdan vodoinstalater u Banjoj Luci
         </h1>
-        <p class="reveal" style="margin:24px auto 0;max-width:580px;font-size:clamp(16px,2.2vw,19px);line-height:1.6;color:#cfe0f6;animation-delay:.2s">
-          Vršimo popravke, montažu i održavanje vodovodnih i kanalizacionih instalacija u stambenim i poslovnim objektima. Izlazimo na teren, utvrđujemo uzrok problema i rješavamo ga stručno i uredno.
+        <p class="reveal" style="margin:20px 0 0;max-width:520px;font-size:clamp(16px,2.2vw,19px);line-height:1.6;color:#cfe0f6;animation-delay:.2s">
+          Popravke, montaža i održavanje vodovodnih i kanalizacionih instalacija za domaćinstva i poslovne prostore. Izađemo, utvrdimo kvar i riješimo ga kako treba.
         </p>
-        <div class="reveal" style="margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;animation-delay:.28s">
-          <button type="button" class="btn btn-accent" data-open-call>
+        <div class="reveal" style="margin-top:32px;display:flex;flex-wrap:wrap;gap:16px;animation-delay:.28s">
+          <a href="tel:+38765170875" class="btn btn-accent">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Pozovite nas
-          </button>
-          <a href="#usluge" class="btn btn-ghost">
-            Pogledajte usluge
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            Pozovi odmah
+          </a>
+          <a href="viber://chat?number=%2B38765170875" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#7360f2;color:#fff;font-family:'Sora',sans-serif;font-weight:600;font-size:15px;padding:16px 24px;border-radius:12px;text-decoration:none;box-shadow:0 10px 24px rgba(115,96,242,.3)">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Pišite na Viber
           </a>
         </div>
-        <div class="reveal" style="margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:24px;animation-delay:.36s">
-          <div style="display:flex;align-items:center;gap:8px;color:#dbe8fb;font-size:14.5px;font-weight:500">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#56e0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            Brz izlazak na teren
+      </div>
+
+      <div class="reveal" style="flex:1 1 340px;min-width:0;display:flex;justify-content:center;animation-delay:.3s">
+        <div style="position:relative;width:100%;max-width:420px;aspect-ratio:1/1">
+          <div style="position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle at 50% 42%,rgba(93,158,255,.5),rgba(29,78,216,.12) 58%,transparent 72%)"></div>
+          <div class="float" style="position:absolute;inset:19%;border-radius:40px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center">
+            <svg viewBox="0 0 24 24" style="width:46%;height:46%" fill="none">
+              <defs><linearGradient id="dropGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ec8ff"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient></defs>
+              <path d="M12 2.5c-.5 2.6-2.1 5-4.1 6.6S4.8 12.9 4.8 15a7.2 7.2 0 0 0 14.4 0c0-2.1-1.1-4-3.1-5.9S12.5 5.1 12 2.5z" fill="url(#dropGrad)"/>
+              <path d="M9.6 15.6a2.6 2.6 0 0 0 2.3 1.5" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" opacity=".85"/>
+            </svg>
           </div>
-          <div style="display:flex;align-items:center;gap:8px;color:#dbe8fb;font-size:14.5px;font-weight:500">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#56e0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-            Garancija na izvedene radove
+          <div class="float" style="position:absolute;top:3%;left:1%;display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:18px;background:#fff;color:#1d4ed8;box-shadow:0 14px 30px rgba(14,42,84,.35);animation-delay:.3s">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
-          <div style="display:flex;align-items:center;gap:8px;color:#dbe8fb;font-size:14.5px;font-weight:500">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#56e0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            Čisto i uredno nakon radova
+          <div class="float" style="position:absolute;top:8%;right:0;display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:18px;background:#fff;color:#1d4ed8;box-shadow:0 14px 30px rgba(14,42,84,.35);animation-delay:1.6s">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m4 4 2.5 2.5"/><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"/><path d="M15 5 5 15"/><path d="M14 17v.01"/><path d="M10 16v.01"/><path d="M13 13v.01"/><path d="M16 10v.01"/><path d="M11 20v.01"/><path d="M17 14v.01"/><path d="M20 11v.01"/></svg>
+          </div>
+          <div class="float" style="position:absolute;bottom:9%;left:0;display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:18px;background:#fff;color:#1d4ed8;box-shadow:0 14px 30px rgba(14,42,84,.35);animation-delay:2.4s">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+          </div>
+          <div class="float" style="position:absolute;bottom:2%;right:7%;display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:18px;background:#fff;color:#1d4ed8;box-shadow:0 14px 30px rgba(14,42,84,.35);animation-delay:.9s">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
           </div>
         </div>
       </div>
 
-      <div class="reveal" style="width:100%;max-width:420px;display:flex;justify-content:center;text-align:left;animation-delay:.3s">
-        <div class="float" style="width:100%;max-width:400px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:32px;backdrop-filter:blur(6px)">
-          <div style="display:flex;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.14)">
-            <span style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:#1d4ed8;color:#fff">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            </span>
-            <div>
-              <div style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px">Potreban Vam je majstor?</div>
-              <div style="font-size:13.5px;color:#cfe0f6">Pozovite nas i opišite problem</div>
-            </div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:16px;padding-top:20px">
-            <div style="display:flex;align-items:center;gap:12px">
-              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#9ec0ff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <span style="font-size:15px;font-weight:600">065 170 875</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:12px">
-              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#9ec0ff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span style="font-size:15px;color:#e4eefb">Bulevar vojvode Živojina Mišića 30, Banja Luka</span>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:12px">
-              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#9ec0ff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-              <span style="flex:1;min-width:0;font-size:14px;color:#cfe0f6;display:flex;flex-direction:column;gap:5px">
-                <span style="display:flex;justify-content:space-between;gap:16px"><span>Pon – Pet</span><span style="color:#fff;font-weight:700">08–18h</span></span>
-                <span style="display:flex;justify-content:space-between;gap:16px"><span>Subota</span><span style="color:#fff;font-weight:700">08–15h</span></span>
-                <span style="display:flex;justify-content:space-between;gap:16px"><span>Hitne intervencije</span><span style="color:#fff;font-weight:700">24/7</span></span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -269,8 +259,59 @@
     </div>
   </section>
 
+  <!-- ============ KAKO RADIMO ============ -->
+  <section id="kako" style="background:#f4f8fd;padding-top:88px;padding-bottom:88px">
+    <div class="wrap">
+      <div style="max-width:640px;margin:0 auto;text-align:center">
+        <span style="font-family:'Sora',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1d4ed8">Kako radimo</span>
+        <h2 style="margin:16px 0 0;font-size:clamp(24px,4vw,32px);font-weight:700;letter-spacing:-.02em;color:#0e2a54">Jednostavno, u par koraka</h2>
+        <p style="margin:16px 0 0;font-size:17px;line-height:1.6;color:#52627a">Od prvog poziva do gotovog posla znate tačno šta možete očekivati.</p>
+      </div>
+
+      <div class="grid-4" style="margin-top:48px">
+
+        <article class="service-card" style="position:relative;background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span style="position:absolute;top:24px;right:28px;font-family:'Sora',sans-serif;font-size:30px;font-weight:800;color:#eef2f8">01</span>
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Javite se</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Pozovite nas ili pišite na Viber i ukratko opišite kvar.</p>
+        </article>
+
+        <article class="service-card" style="position:relative;background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span style="position:absolute;top:24px;right:28px;font-family:'Sora',sans-serif;font-size:30px;font-weight:800;color:#eef2f8">02</span>
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Dolazak i procjena</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Izlazimo na teren, utvrđujemo uzrok i dogovaramo cijenu i termin.</p>
+        </article>
+
+        <article class="service-card" style="position:relative;background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span style="position:absolute;top:24px;right:28px;font-family:'Sora',sans-serif;font-size:30px;font-weight:800;color:#eef2f8">03</span>
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Izvođenje radova</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Posao radimo stručno, kvalitetnim materijalom i uredno.</p>
+        </article>
+
+        <article class="service-card" style="position:relative;background:#fff;border:1px solid #e7edf6;border-radius:20px;padding:32px">
+          <span style="position:absolute;top:24px;right:28px;font-family:'Sora',sans-serif;font-size:30px;font-weight:800;color:#eef2f8">04</span>
+          <span class="icon-chip" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#e7f0fd;color:#1d4ed8;margin-bottom:20px">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <h3 style="font-size:20px;font-weight:700;color:#0e2a54">Provjera i garancija</h3>
+          <p style="margin-top:12px;font-size:15px;line-height:1.6;color:#52627a">Provjerimo sve, očistimo za sobom i damo garanciju na radove.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ============ O NAMA / PREDNOSTI ============ -->
-  <section id="onama" style="background:#f4f8fd;padding-top:88px;padding-bottom:88px">
+  <section id="onama" style="background:#ffffff;padding-top:88px;padding-bottom:88px">
     <div class="wrap" style="display:flex;flex-wrap:wrap;gap:56px;align-items:center">
       <div style="flex:1 1 400px;min-width:0">
         <span style="font-family:'Sora',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1d4ed8">O nama</span>
@@ -283,15 +324,15 @@
         </p>
 
         <div class="grid-stats" style="margin-top:32px">
-          <div style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:20px">
+          <div style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(14,42,84,.05)">
             <div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:#1d4ed8">20+</div>
             <div style="margin-top:4px;font-size:13.5px;font-weight:600;color:#52627a">godina iskustva</div>
           </div>
-          <div style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:20px">
+          <div style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(14,42,84,.05)">
             <div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:#1d4ed8">500+</div>
             <div style="margin-top:4px;font-size:13.5px;font-weight:600;color:#52627a">završenih radova</div>
           </div>
-          <div style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:20px">
+          <div style="background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(14,42,84,.05)">
             <div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:#1d4ed8">24/7</div>
             <div style="margin-top:4px;font-size:13.5px;font-weight:600;color:#52627a">za hitne slučajeve</div>
           </div>
@@ -332,7 +373,7 @@
   </section>
 
   <!-- ============ KONTAKT ============ -->
-  <section id="kontakt" style="background:#ffffff;padding-top:88px;padding-bottom:88px">
+  <section id="kontakt" style="background:#f4f8fd;padding-top:88px;padding-bottom:88px">
     <div class="wrap">
       <div style="max-width:640px;margin:0 auto;text-align:center">
         <span style="font-family:'Sora',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1d4ed8">Kontakt</span>
@@ -354,7 +395,7 @@
             </span>
           </a>
 
-          <div class="adv-item" style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:24px">
+<div class="adv-item" style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e3ebf6;border-radius:16px;padding:24px">
             <span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#e7f0fd;color:#1d4ed8;flex-shrink:0">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </span>
@@ -373,7 +414,6 @@
               <span style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
                 <span style="display:flex;justify-content:space-between;gap:16px;font-size:14.5px"><span style="color:#52627a">Ponedjeljak – Petak</span><span style="font-family:'Sora',sans-serif;font-weight:700;color:#0e2a54">08–18h</span></span>
                 <span style="display:flex;justify-content:space-between;gap:16px;font-size:14.5px"><span style="color:#52627a">Subota</span><span style="font-family:'Sora',sans-serif;font-weight:700;color:#0e2a54">08–15h</span></span>
-                <span style="display:flex;justify-content:space-between;gap:16px;font-size:14.5px"><span style="color:#52627a">Nedjelja</span><span style="font-family:'Sora',sans-serif;font-weight:700;color:#0e2a54">Hitni pozivi</span></span>
                 <span style="display:flex;justify-content:space-between;gap:16px;font-size:14.5px;padding-top:8px;border-top:1px solid #eef2f8"><span style="color:#52627a">Hitne intervencije</span><span style="font-family:'Sora',sans-serif;font-weight:700;color:#1d4ed8">24/7</span></span>
               </span>
             </span>
@@ -405,6 +445,7 @@
           <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
             <a href="#pocetak" style="color:#c7d6ec;font-size:14.5px">Početna</a>
             <a href="#usluge" style="color:#c7d6ec;font-size:14.5px">Usluge</a>
+            <a href="#kako" style="color:#c7d6ec;font-size:14.5px">Kako radimo</a>
             <a href="#onama" style="color:#c7d6ec;font-size:14.5px">O nama</a>
             <a href="#kontakt" style="color:#c7d6ec;font-size:14.5px">Kontakt</a>
           </div>
@@ -420,8 +461,7 @@
             <span style="display:flex;align-items:center;gap:8px;color:#c7d6ec;font-size:14.5px">
               <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#6f98cf" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Bulevar vojvode Živojina Mišića 30, Banja Luka
-            </span>
-          </div>
+            </span>          </div>
         </div>
       </div>
 
